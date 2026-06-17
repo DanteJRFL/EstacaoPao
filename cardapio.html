@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio | Estação do Pão</title>
+    <link rel="stylesheet" href="src/main.css">
+    <link rel="stylesheet" href="src/components.css">
+</head>
+<body>
+    <header>
+        <div class="logo-placeholder">[LOGO SERÁ INSERIDA MANUALMENTE]</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="text-center">Nosso Cardápio</h1>
+        
+        <div class="filters mt-2" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <input type="text" id="searchInput" placeholder="Pesquisar produto..." style="padding: 0.5rem; border: 1px solid var(--brown-soft); border-radius: var(--radius-md);">
+            <select id="categoryFilter" style="padding: 0.5rem; border-radius: var(--radius-md);">
+                <option value="todos">Todas as Categorias</option>
+                <option value="Pães">Pães</option>
+                <option value="Bolos">Bolos</option>
+                <option value="Cafés">Cafés</option>
+            </select>
+        </div>
+
+        <div class="grid" id="produtos-grid">
+            <p>Carregando cardápio acolhedor...</p>
+        </div>
+    </main>
+
+    <script type="module" src="src/menu.js"></script>
+</body>
+</html>

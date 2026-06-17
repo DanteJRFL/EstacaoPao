@@ -1,0 +1,77 @@
+/* Variáveis de Cores e Estilos Globais */
+:root {
+  --brown-dark: #4A3525;
+  --brown-soft: #6F4E37;
+  --off-white: #FDF8E7;
+  --gold: #E9A13B;
+  --text-dark: #2C1E16;
+  --shadow-soft: 0 4px 12px rgba(74, 53, 37, 0.1);
+  --radius-md: 8px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--off-white);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Tipografia */
+h1, h2, h3 {
+  font-family: 'Georgia', serif; /* Traz o tom elegante e clássico */
+  color: var(--brown-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header & Nav */
+header {
+  background-color: var(--brown-dark);
+  color: var(--off-white);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-placeholder {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 1px dashed var(--gold);
+  padding: 0.5rem;
+  color: var(--gold);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a:hover {
+  color: var(--gold);
+  transition: var(--transition);
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 5%;
+}
+
+.text-center { text-align: center; }
+.mt-2 { margin-top: 2rem; }
