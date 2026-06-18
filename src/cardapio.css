@@ -36,7 +36,7 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5%;
-    background: #4a3525a4; 
+    background: #4a352500; 
     backdrop-filter: blur(10px);
 
     z-index: 999;
@@ -54,7 +54,7 @@ body{
 }
 
 .site-header nav a {
-    color: white;
+    color: #D4AB6A;
     font-weight: 500;
     transition: var(--transition);
 }
@@ -63,9 +63,7 @@ body{
     color: var(--gold);
 }
 
-.site-header nav a.active {
-    color: var(--gold);
-}
+
 
 /* ==================================================
    HERO DO CARDÁPIO
