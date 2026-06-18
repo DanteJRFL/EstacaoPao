@@ -12,7 +12,7 @@ header {
     align-items: center;
     padding: 1.5rem 5%;
     background: rgba(74, 53, 37, 0.25);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(10px);
     z-index: 999;
 }
 
@@ -62,10 +62,8 @@ header nav a:hover {
 
 .hero::before {
     content: "";
-
     position: absolute;
     inset: 0;
-
     background: rgba(0, 0, 0, 0.45);
 }
 
