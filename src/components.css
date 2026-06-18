@@ -79,7 +79,7 @@ header nav a:hover {
     color: var(--gold);
     font-size: 3rem;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-top: 5rem;
+    margin-top: 10rem;
 }
 
 .hero h1 {
