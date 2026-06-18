@@ -24,9 +24,11 @@ body {
 }
 
 /* Tipografia */
-h1, h2, h3 {
-  font-family: 'Georgia', serif; /* Traz o tom elegante e clássico */
-  color: var(--brown-dark);
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, serif;
 }
 
 a {
@@ -34,44 +36,18 @@ a {
   color: inherit;
 }
 
-/* Header & Nav */
-header {
-  background-color: var(--brown-dark);
-  color: var(--off-white);
-  padding: 1rem 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.logo-placeholder {
-  font-size: 1.2rem;
-  font-weight: bold;
-  border: 1px dashed var(--gold);
-  padding: 0.5rem;
-  color: var(--gold);
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-nav a:hover {
-  color: var(--gold);
-  transition: var(--transition);
-}
-
 /* Utilities */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 5%;
 }
 
-.text-center { text-align: center; }
-.mt-2 { margin-top: 2rem; }
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}

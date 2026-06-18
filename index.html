@@ -7,29 +7,53 @@
     <title>Estação do Pão | Início</title>
     <link rel="stylesheet" href="src/main.css">
     <link rel="stylesheet" href="src/components.css">
+    <link rel="icon" type="image/x-icon" href="assets/visual-identity/logo.png">
 </head>
 <body>
     <header>
-        <div class="logo-placeholder">[LOGO SERÁ INSERIDA MANUALMENTE]</div>
+        <div class="logo-placeholder">
+            <img
+                id="main-logo"
+                src="assets/visual-identity/logo_nome_png.png"
+                alt="Logo da Estação do Pão">
+        </div>
+
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero text-center" style="background-color: var(--brown-soft); color: var(--off-white); padding: 4rem 2rem;">
-            <h1>Estação do Pão</h1>
-            <p class="mt-2" style="font-size: 1.2rem;">Conforto e sofisticação em cada fatia.</p>
-            <a href="cardapio.html" class="btn mt-2" style="background-color: var(--gold); color: var(--brown-dark);">Ver Cardápio</a>
+        <section class="hero">
+            <div class="hero-overlay">
+
+                <p class="hero-subtitle">
+                    Apaixonados por assar
+                </p>
+
+                <h1>
+                    Estação do Pão
+                </h1>
+
+                <p class="hero-description">
+                    Pães artesanais preparados diariamente com ingredientes selecionados.
+                </p>
+
+                <a href="cardapio.html" class="hero-btn">
+                    Ver Cardápio
+                </a>
+
+            </div>
         </section>
 
-        <section class="container mt-2">
-            <h2 class="text-center">Nossas Especialidades</h2>
-            <div class="grid" id="destaques-grid">
-                </div>
+        <section class="container">
+            <h2>Nossas Especialidades</h2>
+
+            <div class="grid" id="destaques-grid"></div>
         </section>
     </main>
 
