@@ -77,9 +77,8 @@ header nav a:hover {
 
 .hero-subtitle {
     color: var(--gold);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-family: Georgia, serif;
+    font-size: 3rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .hero h1 {

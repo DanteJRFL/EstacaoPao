@@ -1,17 +1,16 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc, updateDoc, query, where, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
-// SUBSTITUA PELAS SUAS CREDENCIAIS DO FIREBASE
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY",
-  authDomain: "seu-projeto.firebaseapp.com",
-  projectId: "seu-projeto",
-  storageBucket: "seu-projeto.appspot.com",
-  messagingSenderId: "SEU_SENDER_ID",
-  appId: "SEU_APP_ID"
+  apiKey: "AIzaSyALJaQPIVYf1hxSuamiclnVTHFnvp_BJ6A",
+  authDomain: "estacaopao.firebaseapp.com",
+  projectId: "estacaopao",
+  storageBucket: "estacaopao.firebasestorage.app",
+  messagingSenderId: "159121175816",
+  appId: "1:159121175816:web:8b7edc309f042abf9be8bd",
+  measurementId: "G-M4GH8P0PBE"
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 
-export { db, collection, getDocs, addDoc, deleteDoc, doc, updateDoc, query, where, orderBy };
+export const db = getFirestore(app);
