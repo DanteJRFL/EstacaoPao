@@ -46,6 +46,8 @@ a {
 
 .text-center {
   text-align: center;
+  font-family: Georgia, serif;
+  font-size: 2rem;
 }
 
 .mt-2 {
