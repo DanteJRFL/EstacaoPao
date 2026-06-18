@@ -5,7 +5,7 @@ import {
     getDocs
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-const grid = document.getElementById("produtos-grid");
+const container = document.getElementById("produtos-grid");
 
 async function carregarProdutos() {
 
@@ -13,39 +13,92 @@ async function carregarProdutos() {
         collection(db, "produtos")
     );
 
-    grid.innerHTML = "";
+    const produtos = [];
 
     snapshot.forEach((doc) => {
+        produtos.push(doc.data());
+    });
 
-        const produto = doc.data();
+    const ordemCategorias = {
+        "Cestas": 1,
+        "Cafés": 2,
+        "Doces": 3,
+        "Salgados": 4
+    };
 
-        grid.innerHTML += `
-          <div class="card">
+    produtos.sort((a, b) => {
 
-            <img
-              src="${produto.imagem}"
-              alt="${produto.nome}"
-            >
+        const ordemA = ordemCategorias[a.categoria] || 999;
+        const ordemB = ordemCategorias[b.categoria] || 999;
 
-            <div class="card-content">
+        if (ordemA !== ordemB) {
+            return ordemA - ordemB;
+        }
 
-              <h3 class="card-title">
-                ${produto.nome}
-              </h3>
+        return a.nome.localeCompare(b.nome);
+    });
 
-              <p>
-                ${produto.descricao}
-              </p>
+    const categorias = {};
 
-              <div class="card-price">
-                R$ ${Number(produto.preco).toFixed(2)}
-              </div>
+    produtos.forEach(produto => {
 
-            </div>
+        if (!categorias[produto.categoria]) {
+            categorias[produto.categoria] = [];
+        }
 
-          </div>
+        categorias[produto.categoria].push(produto);
+    });
+
+    container.innerHTML = "";
+
+    Object.keys(categorias).forEach(categoria => {
+
+        const produtosHTML = categorias[categoria]
+            .map(produto => `
+                <div class="card">
+
+                    <div class="card__img-wrap">
+                        <img
+                            src="${produto.imagem}"
+                            alt="${produto.nome}"
+                        >
+                    </div>
+
+                    <div class="card__info">
+
+                        <h3 class="card__name">
+                            ${produto.nome}
+                        </h3>
+
+                        <p class="card__desc">
+                            ${produto.descricao || ""}
+                        </p>
+
+                        <div class="card__price">
+                            R$ ${Number(produto.preco).toFixed(2)}
+                        </div>
+
+                    </div>
+
+                </div>
+            `)
+            .join("");
+
+        container.innerHTML += `
+            <section class="categoria-container">
+
+                <h2 class="section-title">
+                    ${categoria}
+                </h2>
+
+                <div class="categoria-grid">
+                    ${produtosHTML}
+                </div>
+
+            </section>
         `;
     });
+
 }
 
 carregarProdutos();

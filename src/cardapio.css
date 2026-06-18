@@ -1,182 +1,265 @@
-/* ─── Tokens ─── */
 :root {
-  --cream:      #F5F0E8;
-  --warm-light: #EDE6D6;
-  --gold:       #B8924A;
-  --gold-light: #D4AB6A;
-  --brown:      #5C3D1E;
-  --text:       #2E1F0F;
-  --text-muted: #8A7060;
-  --border:     rgba(92,61,30,0.18);
-  --card-bg:    #FAF6EF;
-  --radius:     4px;
+    --cream: #F5F0E8;
+    --warm-light: #EDE6D6;
+    --gold: #B8924A;
+    --gold-light: #D4AB6A;
+    --brown: #5C3D1E;
+    --text: #2E1F0F;
+    --text-muted: #8A7060;
+    --border: rgba(92,61,30,.18);
+    --card-bg: #FAF6EF;
+    --radius: 6px;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  background: var(--cream);
-  font-family: 'Jost', sans-serif;
-  color: var(--text);
-  min-height: 100vh;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* ─── Page wrapper ─── */
-.page {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 3rem 2rem 4rem;
+body{
+    background:var(--cream);
+    font-family:'Jost',sans-serif;
+    color:var(--text);
 }
 
-/* ─── Header ─── */
-.header {
-  text-align: center;
-  margin-bottom: 3rem;
+/* =========================
+   HEADER IGUAL AO INDEX
+========================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: #4a3525a4; 
+    backdrop-filter: blur(10px);
+
+    z-index: 999;
 }
 
-.header__name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 6vw, 3.2rem);
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--brown);
-  line-height: 1;
+#logo {
+    width: 120px;
+    height: auto;
 }
 
-.header__tagline {
-  margin-top: 0.5rem;
-  font-size: 0.78rem;
-  font-weight: 300;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--gold);
+.site-header nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
 }
 
-.header__divider {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 1.25rem auto 0;
-  max-width: 320px;
-}
-.header__divider span {
-  flex: 1;
-  height: 0.5px;
-  background: var(--gold);
-  opacity: 0.6;
-}
-.header__divider svg { flex-shrink: 0; }
-
-/* ─── Section title ─── */
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.05rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-align: center;
-  margin-bottom: 1.75rem;
+.site-header nav a {
+    color: white;
+    font-weight: 500;
+    transition: var(--transition);
 }
 
-/* ─── Grid ─── */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 3rem;
+.site-header nav a:hover {
+    color: var(--gold);
 }
 
-@media (max-width: 600px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 380px) {
-  .grid { grid-template-columns: 1fr; }
+.site-header nav a.active {
+    color: var(--gold);
 }
 
-/* ─── Card ─── */
-.card {
-  background: var(--card-bg);
-  border: 0.5px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(92,61,30,0.1);
+/* ==================================================
+   HERO DO CARDÁPIO
+================================================== */
+
+.cardapio-hero{
+    margin-top: 180px;
+    text-align:center;
+    padding: 2rem 0 4rem;
 }
 
-.card__img-wrap {
-  aspect-ratio: 1 / 1;
-  background: var(--warm-light);
-  overflow: hidden;
-}
-.card__img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.cardapio-subtitle{
+    color:var(--gold);
+    font-size:1rem;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    margin-bottom:1rem;
 }
 
-/* Placeholder shown when no image is provided */
-.card__placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  color: var(--gold-light);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-.card__placeholder svg { opacity: 0.4; }
-
-.card__info {
-  padding: 0.75rem 0.85rem 0.9rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  border-top: 0.5px solid var(--border);
-}
-.card__name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  font-weight: 500;
-  font-style: italic;
-  color: var(--brown);
-  line-height: 1.2;
-}
-.card__desc {
-  font-size: 0.72rem;
-  font-weight: 300;
-  color: var(--text-muted);
-  letter-spacing: 0.02em;
-  line-height: 1.5;
-}
-.card__price {
-  margin-top: 0.4rem;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 0.04em;
+.cardapio-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(3rem,7vw,5rem);
+    color:var(--brown);
+    margin-bottom:1rem;
 }
 
-/* ─── Footer ─── */
-.footer {
-  text-align: center;
-  font-size: 0.7rem;
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  padding-top: 1.5rem;
-  border-top: 0.5px solid var(--border);
+.cardapio-description{
+    color:var(--text-muted);
+    font-size:1rem;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+}
+
+/* Linha decorativa */
+
+.cardapio-hero::after{
+    content:"";
+    display:block;
+    width:120px;
+    height:2px;
+    background:var(--gold);
+    margin:2rem auto 0;
+    opacity:.6;
+}
+
+.page{
+    max-width:1200px;
+    margin:auto;
+    padding:3rem 2rem;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    margin-bottom:4rem;
+}
+
+.header__name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2rem,6vw,3.5rem);
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--brown);
+}
+
+.header__tagline{
+    margin-top:.5rem;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    font-size:.8rem;
+    color:var(--gold);
+}
+
+.header__divider{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    max-width:320px;
+    margin:1.5rem auto 0;
+}
+
+.header__divider span{
+    flex:1;
+    height:1px;
+    background:var(--gold);
+    opacity:.5;
+}
+
+/* CATEGORIAS */
+
+.categoria-container{
+    margin-bottom:4rem;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:2rem;
+
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--gold);
+}
+
+/* GRID DOS PRODUTOS */
+
+.categoria-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:1.5rem;
+}
+
+/* CARD */
+
+.card{
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card__img-wrap{
+    width:100%;
+    aspect-ratio:1/1;
+    overflow:hidden;
+    background:var(--warm-light);
+}
+
+.card__img-wrap img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.card__info{
+    padding:1rem;
+}
+
+.card__name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.4rem;
+    color:var(--brown);
+    margin-bottom:.4rem;
+}
+
+.card__desc{
+    color:var(--text-muted);
+    font-size:.9rem;
+    line-height:1.5;
+    min-height:60px;
+}
+
+.card__price{
+    margin-top:.8rem;
+    color:var(--gold);
+    font-weight:600;
+    font-size:1.1rem;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:3rem;
+    padding-top:1.5rem;
+    border-top:1px solid var(--border);
+
+    color:var(--text-muted);
+    font-size:.8rem;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+}
+
+@media (max-width:768px){
+
+    .categoria-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media (max-width:500px){
+
+    .categoria-grid{
+        grid-template-columns:1fr;
+    }
+
 }
